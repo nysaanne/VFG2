@@ -24,7 +24,7 @@ def suggest_action(weather_data):
 
 @st.cache_data
 def load_data(file_name):
-    return pd.read_csv(f'Downloads/{file_name}.csv')
+    return pd.read_csv(f'{file_name}.csv')
 
 API_KEY_WEATHER = '52d8d3fbd86148499b0273f6bc7a6bb4'
 API_KEY_GEMINI = "AIzaSyDguVIkytn21HBhcQoQJis_e7JcuAPQMko"
