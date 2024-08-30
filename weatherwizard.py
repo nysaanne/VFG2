@@ -24,7 +24,7 @@ def suggest_action(weather_data):
 
 @st.cache_data
 def load_data(file_name):
-    return pd.read_csv(f'{file_name}.csv')
+    return pd.read_csv(f'Downloads/{file_name}.csv')
 
 API_KEY_WEATHER = '52d8d3fbd86148499b0273f6bc7a6bb4'
 API_KEY_GEMINI = "AIzaSyDguVIkytn21HBhcQoQJis_e7JcuAPQMko"
@@ -128,11 +128,11 @@ def main():
                 hospitals = load_data('hospitals')
                 st.markdown('### Hospitals', unsafe_allow_html=True)
                 st.dataframe(hospitals, hide_index=True)
-            elif any(keyword in user_message_lower for keyword in ['rebuild', 'nemo', 'news', 'hurricane center', 'hurricane essentials']):
+            elif any(keyword in user_message_lower for keyword in ['rebuild', 'nemo', 'news', 'hurricane centre', 'hurricane essentials']):
                 hurricane_essentials = load_data('hurricane_essentials')
                 st.markdown('### Hurricane Essentials', unsafe_allow_html=True)
                 st.dataframe(hurricane_essentials, hide_index=True)
-            elif any(keyword in user_message_lower for keyword in ['tropical storm', 'hurricane', 'shelters']):
+            elif any(keyword in user_message_lower for keyword in ['emergency', 'shelter', 'shelters']):
                 shelters = load_data('emergency_shelters')
                 st.markdown('### Emergency Shelters', unsafe_allow_html=True)
                 st.dataframe(shelters[['Shelter Name', 'Address']], hide_index=True)
